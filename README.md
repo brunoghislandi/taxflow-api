@@ -8,7 +8,7 @@ A **Taxflow API** é um serviço RESTful corporativo desenvolvido em Java para o
 
 O projeto foi construído utilizando o que há de mais moderno no ecossistema Java:
 
-*   **Java 25**
+*   **Java 21**
 *   **Spring Boot 4.1.0** (Spring Web, Spring Data JPA, Validation)
 *   **PostgreSQL** (Banco de dados relacional)
 *   **MapStruct** (Mapeamento de alta performance entre Entidades e DTOs)
@@ -34,7 +34,7 @@ A API segue uma arquitetura em camadas (MVC) estritamente definida, garantindo o
 
 ### 1. Pré-requisitos
 Antes de começar, você precisará ter instalado em sua máquina:
-*   [JDK 25](https://adoptium.net/)
+*   [JDK 21](https://adoptium.net/)
 *   [Maven](https://maven.apache.org/)
 *   [PostgreSQL](https://www.postgresql.org/) (Rodando na porta padrão `5432`)
 
