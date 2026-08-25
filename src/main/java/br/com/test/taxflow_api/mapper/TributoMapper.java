@@ -13,7 +13,7 @@ public interface TributoMapper {
 
     TributoResponseDTO toResponseDTO(Tributo tributo);
 
-    void atualizarEntidade(TributoRequestDTO dto, @MappingTarget Tributo entidade);
+    void atualizar(TributoRequestDTO dto, @MappingTarget Tributo entidade);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void atualizarParcial(TributoPatchDTO dto, @MappingTarget Tributo entidade);

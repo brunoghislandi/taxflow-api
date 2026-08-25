@@ -7,7 +7,7 @@ import br.com.test.taxflow_api.dto.TributoRequestDTO;
 import br.com.test.taxflow_api.dto.TributoResponseDTO;
 import br.com.test.taxflow_api.exception.RecursoNaoEncontradoException;
 import br.com.test.taxflow_api.mapper.TributoMapper;
-import br.com.test.taxflow_api.repository.TributosRepository;
+import br.com.test.taxflow_api.repository.TributoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,7 +30,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class TributoServiceImplTest {
 
-    @Mock TributosRepository repository;
+    @Mock TributoRepository repository;
     @InjectMocks TributoServiceImpl service;
     @Mock TributoMapper mapper;
 
@@ -81,7 +81,7 @@ public class TributoServiceImplTest {
         assertEquals(responseAtualizado, atualizado);
 
         verify(repository).save(tributoSalvo);
-        verify(mapper).atualizarEntidade(requestAtualizacao, tributoSalvo);
+        verify(mapper).atualizar(requestAtualizacao, tributoSalvo);
     }
 
     @Test

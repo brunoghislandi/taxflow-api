@@ -2,7 +2,7 @@ package br.com.test.taxflow_api.config;
 
 import br.com.test.taxflow_api.domain.TipoTributo;
 import br.com.test.taxflow_api.domain.Tributo;
-import br.com.test.taxflow_api.repository.TributosRepository;
+import br.com.test.taxflow_api.repository.TributoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class TestDatabaseSeeder implements CommandLineRunner {
 
-    private final TributosRepository repository;
+    private final TributoRepository repository;
 
     @Override
     public void run(String... args) throws Exception {

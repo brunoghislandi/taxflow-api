@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/tributos")
 @RequiredArgsConstructor
 @Tag(name = "tributos (Tributos)", description = "API de testes tributária")
-public class TributosController {
+public class TributoController {
 
     private final TributoService service;
 
