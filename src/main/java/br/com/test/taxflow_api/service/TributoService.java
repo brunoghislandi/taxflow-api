@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface TributoService {
-    TributoResponseDTO salvar (TributoRequestDTO tributo);
+    TributoResponseDTO salvar (TributoRequestDTO dto);
     TributoResponseDTO atualizar (Long id, TributoRequestDTO dto);
     TributoResponseDTO atualizarParcial(Long id, TributoPatchDTO dto);
     Page<TributoResponseDTO> listarTodos(Pageable number);

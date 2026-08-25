@@ -6,7 +6,7 @@ import br.com.test.taxflow_api.dto.TributoRequestDTO;
 import br.com.test.taxflow_api.dto.TributoResponseDTO;
 import br.com.test.taxflow_api.exception.RecursoNaoEncontradoException;
 import br.com.test.taxflow_api.mapper.TributoMapper;
-import br.com.test.taxflow_api.repository.TributosRepository;
+import br.com.test.taxflow_api.repository.TributoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TributoServiceImpl implements TributoService {
 
-    private final TributosRepository repository;
+    private final TributoRepository repository;
     private final TributoMapper mapper;
 
     @Override
@@ -34,7 +34,7 @@ public class TributoServiceImpl implements TributoService {
         Tributo tributoExistente = repository.findById(id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException("Tributo não encontrado com o ID " + id));
 
-        mapper.atualizarEntidade(dto, tributoExistente);
+        mapper.atualizar(dto, tributoExistente);
 
         Tributo tributoAtualizado = repository.save(tributoExistente);
 
