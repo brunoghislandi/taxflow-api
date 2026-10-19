@@ -7,10 +7,15 @@ import br.com.test.taxflow_api.domain.Tributo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
+import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
 import org.springframework.boot.jpa.test.autoconfigure.TestEntityManager;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.postgresql.PostgreSQLContainer;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -18,7 +23,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Testcontainers
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class LancamentoRepositoryTest {
 
     @Autowired
@@ -27,6 +34,10 @@ public class LancamentoRepositoryTest {
     TributoRepository tributoRepository;
     @Autowired
     TestEntityManager testEntityManager;
+
+    @Container
+    @ServiceConnection
+    static PostgreSQLContainer postgres = new PostgreSQLContainer("postgres:17");
 
     @Test
     void deveSalvarLancamentoComTributoVinculado() {
@@ -44,7 +55,7 @@ public class LancamentoRepositoryTest {
 
     @Test
     void procurarIdQueNaoExiste() {
-        Optional<Lancamento> lancamentoEncontrado = repository.findById(99L);
+        Optional<Lancamento> lancamentoEncontrado = repository.findById(Long.MAX_VALUE);
 
         assertTrue(lancamentoEncontrado.isEmpty());
     }
